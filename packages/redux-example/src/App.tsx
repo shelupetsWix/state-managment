@@ -1,11 +1,14 @@
 import React from "react";
 import "./App.css";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import { IndexPage } from "./components/index-page";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Redux example</h1>
-    </div>
+    <Provider store={store}>
+      <IndexPage />
+    </Provider>
   );
 }
 
