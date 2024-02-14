@@ -1,11 +1,10 @@
 import React from "react";
 import "./App.css";
+import { IndexPage } from "./components/index-page";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Zustand example</h1>
-    </div>
+    <IndexPage />
   );
 }
 

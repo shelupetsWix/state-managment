@@ -1,9 +1,9 @@
 import React, { FC, useState } from "react";
-import { Item, patchItem } from "../store/itemsSlice";
-import { useDispatch } from "../store";
+import { Item } from "../types";
+import { useStore } from "../store/useStore";
 
 export const RenderItemSingle: FC<{ item: Item }> = ({ item }) => {
-  const dispatch = useDispatch();
+  const patchItem = useStore((state) => state.patchItem);
   const [inputShown, setInputShown] = useState<boolean>(false);
   const [newTitle, setNewTitle] = useState<string>(item.title);
 
@@ -29,7 +29,7 @@ export const RenderItemSingle: FC<{ item: Item }> = ({ item }) => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              dispatch(patchItem({ title: newTitle, itemId: item.id }));
+              patchItem({ title: newTitle, itemId: item.id })
               setInputShown(false);
             }}
           >

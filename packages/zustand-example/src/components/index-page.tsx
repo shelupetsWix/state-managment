@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "../store";
-import { fetchItems, selectUserId } from "../store/itemsSlice";
 import { TopButtons } from "./top-buttons";
 import { RenderItems } from "./render-items";
+import { useStore } from "../store/useStore";
 
 export const IndexPage = () => {
-  const dispatch = useDispatch();
-  const userId = useSelector(selectUserId);
+  const { fetchItems, userId } = useStore((state) => state);
 
   useEffect(() => {
-    dispatch(fetchItems({ userId }));
+    fetchItems({ userId });
   }, [userId]);
 
   return (
