@@ -6,11 +6,9 @@ import {
 } from "react-redux";
 
 import itemsReducer from "./itemsSlice";
-// import fetchDataReducer from './fetchDataSlice';
 
 const rootReducer = combineReducers({
   todoListItems: itemsReducer,
-  //   fetchData: fetchDataReducer,
 });
 
 export const store = configureStore({
